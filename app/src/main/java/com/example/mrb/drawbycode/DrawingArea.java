@@ -13,6 +13,11 @@ import android.view.View;
  */
 public class DrawingArea extends View // You need to extend the View class
 {
+
+    //Vertical line component of grid creation variables
+
+
+
     boolean blnShowText;
     int intTextPosition;
 
@@ -62,7 +67,7 @@ public class DrawingArea extends View // You need to extend the View class
         pntBluePaint.setStrokeWidth(3);
 
         pntGreyPaint.setColor(Color.GRAY);
-        pntGreyPaint.setStrokeWidth(60);
+        pntGreyPaint.setStrokeWidth(10);
     }
 
     protected void onSizeChanged(int w, int h, int oldw, int oldh)
@@ -80,7 +85,7 @@ public class DrawingArea extends View // You need to extend the View class
         // This method is where we issue our actual drawing commands.
         // The Canvas parameter is what we draw ON; the Paint objects defined above are what we draw WITH.
 
-        super.onDraw(canvas);
+       /* super.onDraw(canvas);
         //head
         canvas.drawRect((float) 175.0, (float) 50.0, (float) 475.0, (float) 350.0, pntGreyPaint);
         //eye components
@@ -130,6 +135,28 @@ public class DrawingArea extends View // You need to extend the View class
 
         //body
         canvas.drawRect((float) 235.0, (float) 350.0, (float) 415.0, (float) 750.0, pntGreyPaint);
+    */
+
+    //The area below this comment will be the code that draws my code
+        float xPositionGrid = (float)0.0;
+        int i = 0;
+
+        while(i < 10){
+            canvas.drawLine( xPositionGrid, (float) 0.0, xPositionGrid, (float) 1045.0, pntGreyPaint);
+            i = i + 1;
+            xPositionGrid = xPositionGrid + (float)80.0;
+        }
+
+        int i2 = 0;
+        float yPosition = (float)0.0;
+
+        while(i2 < 17){
+            canvas.drawLine((float) 0.0, yPosition,(float) 640.0, yPosition, pntGreyPaint);
+                i2 = i2 + 1;
+                yPosition = yPosition + (float)80.0;
+        }
+
+
     }
 
 
