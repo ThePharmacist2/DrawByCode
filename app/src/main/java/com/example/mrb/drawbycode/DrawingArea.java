@@ -26,6 +26,7 @@ public class DrawingArea extends View // You need to extend the View class
     Paint pntWhitePaint;      // Painting object to handle the paint jobs for graphics
     Paint pntBluePaint;
     Paint pntGreyPaint;
+    Paint pntRedPaint;
 
     public DrawingArea(Context context, AttributeSet attrs)
     {
@@ -56,6 +57,7 @@ public class DrawingArea extends View // You need to extend the View class
         pntWhitePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         pntBluePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         pntGreyPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        pntRedPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
         pntBlackPaint.setColor(Color.BLACK);
         pntBlackPaint.setStrokeWidth(60);
@@ -68,6 +70,9 @@ public class DrawingArea extends View // You need to extend the View class
 
         pntGreyPaint.setColor(Color.GRAY);
         pntGreyPaint.setStrokeWidth(10);
+
+        pntRedPaint.setColor(Color.RED);
+        pntRedPaint.setStrokeWidth(10);
     }
 
     protected void onSizeChanged(int w, int h, int oldw, int oldh)
@@ -138,7 +143,7 @@ public class DrawingArea extends View // You need to extend the View class
     */
 
     //The area below this comment will be the code that draws my code
-        float xPositionGrid = (float)0.0;
+       /* float xPositionGrid = (float)0.0;
         int i = 0;
 
         while(i < 10){
@@ -154,6 +159,60 @@ public class DrawingArea extends View // You need to extend the View class
             canvas.drawLine((float) 0.0, yPosition,(float) 640.0, yPosition, pntGreyPaint);
                 i2 = i2 + 1;
                 yPosition = yPosition + (float)80.0;
+        }
+        */
+    float rectTop = (float)0;
+    float rectBot = (float)80;
+    float rectLeft = (float)0;
+    float rectRight = (float)80;
+    int i3 = 0;
+
+        while(i3 < 52) {
+            canvas.drawRect(rectLeft, rectTop, rectRight, rectBot, pntBlackPaint);
+            rectLeft = rectLeft + 160;
+            rectRight = rectRight + 160;
+            i3 = i3 + 1;
+
+            if(i3 == 4 || i3 == 12 || i3 == 20 || i3 == 28 || i3 == 36 || i3 == 44){
+                rectTop = rectTop + 80;
+                rectBot = rectBot + 80;
+                rectLeft = 80;
+                rectRight = 160;
+            }
+
+            if (i3 == 8 || i3 == 16 || i3 == 24 || i3 == 32 || i3 == 40 || i3 == 48){
+                rectBot = rectBot + 80;
+                rectTop = rectTop + 80;
+                rectLeft = 0;
+                rectRight = 80;
+            }
+        }
+
+        float rectTop2 = (float)0;
+        float rectBot2 = (float)80;
+        float rectLeft2 = (float)80;
+        float rectRight2 = (float)160;
+        int i4 = 0;
+
+        while(i4 < 52) {
+            canvas.drawRect(rectLeft2, rectTop2, rectRight2, rectBot2, pntRedPaint);
+            rectLeft2 = rectLeft2 + 160;
+            rectRight2 = rectRight2 + 160;
+            i4 = i4 + 1;
+
+            if(i4 == 8 || i4 == 16 || i4 == 24 || i4 == 32 || i4 == 40 || i4 == 48){
+                rectTop2 = rectTop2 + 80;
+                rectBot2 = rectBot2 + 80;
+                rectLeft2 = 80;
+                rectRight2 = 160;
+            }
+
+            if (i4 == 4 || i4 == 12 || i4 == 20 || i4 == 28 || i4 == 36 || i4 == 44){
+                rectBot2 = rectBot2 + 80;
+                rectTop2 = rectTop2 + 80;
+                rectLeft2 = 0;
+                rectRight2 = 80;
+            }
         }
 
 
